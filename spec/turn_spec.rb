@@ -15,4 +15,10 @@ RSpec.describe Turn do
         expect(turn.guess).to eq("Juneau")
     end
 
+    it "has a card" do 
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("Juneau", card)
+        current_card = turn.card
+        expect(current_card).to be_instance_of(Card)
+    end
 end
