@@ -1,6 +1,6 @@
 class Card
 
-    attr_reader :question, 
+    attr_accessor :question, 
                 :answer, 
                 :category 
     #an attribute reader to increase the scope of the variables

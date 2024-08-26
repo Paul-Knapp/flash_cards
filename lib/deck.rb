@@ -15,7 +15,9 @@ class Deck
     end
 
     def cards_in_category(parameter)
-       @cards.find_all { |card| card.category == parameter }
+       @cards.find_all do |card|
+          card.category == parameter 
+       end
 
     end
 
