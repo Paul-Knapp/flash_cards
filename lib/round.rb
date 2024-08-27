@@ -1,6 +1,6 @@
 
 class Round
-    attr_reader :deck, :turns,
+    attr_reader :deck, :turns, :card_number
     #allow acces to the variables that will be queried
     def initialize(deck)
         @deck = deck
@@ -10,7 +10,6 @@ class Round
     
     def current_card
         @deck.cards[@card_number]
-        #call the .first method on the deck to return the first card in the array
     end
 
     def take_turn(guess)
@@ -23,7 +22,7 @@ class Round
     end
 
     def number_correct
-        @turns.count { |turn| turn.correct?}
+        @turns.count { |turn| turn.correct? }
         #this method looks at the turns array and counts the number of
         #correct answers. it is almost shorthand for the .each
     end
@@ -41,10 +40,11 @@ class Round
         # a more accurate result
     end
 
-    # def percent_correct_by_category(category)
-    #     category_turns = @turns.select { |turn| turn.card.category == category }
-    #     correct_in_category = category_turns.count { |turn| turn.correct? }
-    #     return 0.0 if category_turns.empty?
-    #     (correct_in_category.to_f / category_turns.count * 100).round(1)
-    #   end
+    def percent_correct_by_category(category)
+        category_turns = @turns.select { |turn| turn.card.category == category }
+        correct_in_category = category_turns.count { |turn| turn.correct? }
+        return 0.0 if category_turns.empty?
+        (correct_in_category.to_f / category_turns.count * 100).round(1)
+    end
+
 end 

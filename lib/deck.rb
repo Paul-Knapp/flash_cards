@@ -1,9 +1,8 @@
 class Deck
 
-    attr_accessor :cards, :card
+    attr_reader :cards
     
-    def initialize(*cards)
-        #the splat operator allows multiple arguements to be passed in
+    def initialize(cards)
         #   and creates an array with the arguements as the elements in it.
         @cards = cards
     end

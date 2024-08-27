@@ -1,7 +1,6 @@
-require './lib/card'
 class Turn 
 
-    attr_accessor :guess, :card, :answer
+    attr_reader  :guess, :card
     #increase the scope of the guess variable
     
     def initialize(guess , card)

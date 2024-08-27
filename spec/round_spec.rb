@@ -16,32 +16,48 @@ RSpec.describe Round do
     it 'Exists' do
 
         expect(@round).to be_instance_of(Round)
+        # should be an instance of the class round
     end
 
-    xit 'Has a deck' do
-     
+    it 'Has a deck' do
         expect(@round.deck).to eq (@deck)
+        #the deck in the class should be the deck we created
     end
 
-    xit 'Starts at 0 turns' do
-   
+    it 'Starts at 0 turns' do
         expect(@round.turns).to eq ([])
+        #the round should be instatiated with 0 turns 
     end
 
-    xit 'Can take turns' do
-       
+    it 'Can take turns' do
+        expect(@round.card_number).to eq 0
+        expect(@round.turns.length).to eq 0
         expect(@round.take_turn("Juneau")).to be_instance_of(Turn)
+        expect(@round.turns.length).to eq 1
+        expect(@round.card_number).to eq 1
+        # when we take a turn it should be added to the turns array
     end
 
-    xit "Tracks number of correct answers" do
+    it "Tracks number of correct answers" do
         @round.take_turn("Juneau")
+        # the answer in the turn is correct
         expect(@round.number_correct).to eq 1
+        # we expect sin
     end
 
-    xit "Can tell percent of correct answers" do
+    it "Can tell percent of correct answers" do
         @round.take_turn("Juneau")
         @round.take_turn("Nome")
-        expect(@round.percent_correct).to eq
+        expect(@round.percent_correct).to eq 50
     end
 
+    it "can tell percent correct by category" do
+        @round.take_turn("Juneau")
+        @round.take_turn("Mars")
+        @round.take_turn("North North East")
+        expect(@round.percent_correct_by_category(:STEM)).to eq 50
+        # 1 of 2 answers correct should be 50%
+        expect(@round.percent_correct_by_category(:Geography)).to eq 100
+        # all answers correct in the category should equal 
+    end
 end
