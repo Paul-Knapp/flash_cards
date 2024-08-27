@@ -15,19 +15,22 @@ require './lib/round'
    
 
 def start
-
-    
    p "welcome your playing with #{@deck.count} cards"
    p "----------------------------------------------"
    # display the starting text for the game
    # p "This is card number #{@round.index + 1} of #{@cards.length}"
 
    @deck.cards.each do 
-       p "This is card number #{} of #{@cards.length}"
-       p @round.current_card.question
-       @round.take_turn(gets.chomp)
-
+    puts "This is card number #{@round.card_number} of #{@cards.length}"
+    puts @round.current_card.question
+   puts @round.take_turn(gets.chomp)
+    puts @round.turns.last.feedback
    end
+
+   puts "********  Game over! ********"
+   puts "You had #{@round.number_correct} correct guesses out of #{@cards.length}  for a total score of #{@round.percent_correct}"
+   puts "STEM - #{@round.percent_correct_by_category(:STEM)}%"
+   puts "Giography - #{@round.percent_correct_by_category(:Geography)}%"
 end
 
 start()
