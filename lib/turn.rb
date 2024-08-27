@@ -1,9 +1,8 @@
 class Turn 
-
     attr_reader  :guess, :card
-    #increase the scope of the guess variable
+    # increase the scope of the guess variable and the card variable
     
-    def initialize(guess , card)
+    def initialize(guess, card)
         @guess = guess
         @card = card
     end
