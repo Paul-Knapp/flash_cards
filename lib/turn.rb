@@ -1,6 +1,7 @@
+require './lib/card'
 class Turn 
 
-    attr_reader :guess, :card
+    attr_accessor :guess, :card, :answer
     #increase the scope of the guess variable
     
     def initialize(guess , card)
@@ -9,11 +10,7 @@ class Turn
     end
 
     def correct?
-        if guess.downcase == (card.answer).downcase
-            true
-        else
-            false
-        end
+         @guess.downcase == (@card.answer).downcase     
     end
 
     def feedback

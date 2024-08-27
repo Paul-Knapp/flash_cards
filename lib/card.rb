@@ -1,8 +1,10 @@
+
+
 class Card
 
     attr_accessor :question, 
-                :answer, 
-                :category 
+                  :answer, 
+                  :category 
     #an attribute reader to increase the scope of the variables
     def initialize(question , answer , category)   #create each card with a catagory, a question and an answer
         @question = question
