@@ -5,7 +5,7 @@ RSpec.describe Turn do
     it 'exists' do 
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         turn = Turn.new("Juneau", card )
-        #create an instance of the card class for testing
+        # create an instance of the card class for testing
         #require 'pry' ;Binding.pry
         expect(turn).to be_instance_of(Turn)
     end 
@@ -13,7 +13,7 @@ RSpec.describe Turn do
     it "has a guess" do   
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         turn = Turn.new("Juneau", card )
-
+        # create instances of the card and turn class for testing
         expect(turn.guess).to eq("Juneau")
     end
 
@@ -21,6 +21,7 @@ RSpec.describe Turn do
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         turn = Turn.new("Juneau", card)
         current_card = turn.card
+
         expect(current_card).to be_instance_of(Card)
     end
 
@@ -28,8 +29,7 @@ RSpec.describe Turn do
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         turn = Turn.new("Juneau", card)
 
-        expect(turn.correct?).to eq true
-        
+        expect(turn.correct?).to eq true 
     end
 
     it "has an incorrect guess" do
