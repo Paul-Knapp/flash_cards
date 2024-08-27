@@ -14,20 +14,19 @@ RSpec.describe Round do
     end
 
     it 'Exists' do
-
         expect(@round).to be_instance_of(Round)
         # should be an instance of the class round
     end
 
     it 'Has a deck' do
         expect(@round.deck).to eq (@deck)
-        #the deck in the class should be the deck we created
+        # the deck in the class should be the deck we created
     end
 
     it 'Starts at 0 turns' do
         expect(@round.turns).to eq ([])
-        #the round should be instatiated with 0 turns 
-    end
+        # the round should be instatiated with 0 turns 
+    end 
 
     it 'Can take turns' do
         expect(@round.card_number).to eq 0
