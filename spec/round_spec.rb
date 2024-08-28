@@ -13,22 +13,22 @@ RSpec.describe Round do
     @round = Round.new(@deck)
     end
 
-    it 'Exists' do
+    it 'exists' do
         expect(@round).to be_instance_of(Round)
         # should be an instance of the class round
     end
 
-    it 'Has a deck' do
+    it 'has a deck' do
         expect(@round.deck).to eq (@deck)
         # the deck in the class should be the deck we created
     end
 
-    it 'Starts at 0 turns' do
+    it 'starts at 0 turns' do
         expect(@round.turns).to eq ([])
         # the round should be instatiated with 0 turns 
     end 
 
-    it 'Can take turns' do
+    it 'can take turns' do
         expect(@round.card_number).to eq 0
         expect(@round.turns.length).to eq 0
         expect(@round.take_turn("Juneau")).to be_instance_of(Turn)
@@ -37,14 +37,14 @@ RSpec.describe Round do
         # when we take a turn it should be added to the turns array
     end
 
-    it "Tracks number of correct answers" do
+    it "tracks number of correct answers" do
         @round.take_turn("Juneau")
         # the answer in the turn is correct
         expect(@round.number_correct).to eq 1
         # we expect sin
     end
 
-    it "Can tell percent of correct answers" do
+    it "can tell percent of correct answers" do
         @round.take_turn("Juneau")
         @round.take_turn("Nome")
         expect(@round.percent_correct).to eq 50
